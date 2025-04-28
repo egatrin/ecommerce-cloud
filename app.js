@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
     let html = `
       <html>
       <head>
-        <title>Galeri Foto Premium</title>
+        <title>Arsip.Sj Fotografi</title>
         <style>
           body {
             font-family: 'Poppins', sans-serif;
@@ -173,3 +173,5 @@ app.get('/', (req, res) => {
 app.listen(3000, () => {
   console.log('Server berjalan di port 3000');
 });
+
+console.log('CI/CD berhasil!');
