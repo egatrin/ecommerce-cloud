@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
     let html = `
       <html>
       <head>
-        <title>Arsip.Sj Fotografi Professional</title>
+        <title>Portofilio Arsip.Sj</title>
         <style>
           body {
             font-family: 'Poppins', sans-serif;
