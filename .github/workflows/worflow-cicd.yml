@@ -43,4 +43,4 @@ jobs:
           cd ~/ecommerce-app
           git pull origin main
           npm install
-          pm2 restart app.js
+          pm2 reload ecommerce-app
