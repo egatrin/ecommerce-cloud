@@ -11,6 +11,8 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
+      with:
+        path: ecommerce-cloud
 
     - name: Setup Node.js
       uses: actions/setup-node@v4
@@ -19,10 +21,12 @@ jobs:
 
     - name: Install dependencies
       run: |
+        cd ecommerce-cloud
         npm install
 
     - name: Run unit tests
       run: |
+        cd ecommerce-cloud
         npm test
 
   deploy:
@@ -32,6 +36,8 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
+      with:
+        path: ecommerce-cloud
 
     - name: Deploy ke EC2 via SSH
       uses: appleboy/ssh-action@master
@@ -40,7 +46,7 @@ jobs:
         username: ${{ secrets.EC2_USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          cd ~/ecommerce-app
+          cd ~/ecommerce-cloud
           git pull origin main
           npm install
-          pm2 reload ecommerce-app
+          pm2 restart ecommerce-app
